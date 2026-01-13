@@ -97,6 +97,10 @@ snakemake --cores 12 results/annotation/ehdn_DBSCAN_annotated.tsv
 snakemake --cores 16 results/analysis/reports/all_mixed/done
 ```
 
+Documentation
+
+See [Documents](docs) for installation instructions, usage guide, and description of file formats.
+
 ## Citation
 
 If you use this pipeline, please cite:

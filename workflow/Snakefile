@@ -1,0 +1,13 @@
+configfile: "config/config.yaml"
+
+include: "rules/ehdn.smk"
+include: "rules/qc.smk"
+include: "rules/dbscan.smk"
+include: "rules/annotate.smk"
+include: "rules/rexprt.smk"
+include: "rules/analysis.smk"
+
+
+rule all:
+    input:
+        f"results/analysis/reports/{config['analysis_privacy']}_{config['analysis_purity']}/done"

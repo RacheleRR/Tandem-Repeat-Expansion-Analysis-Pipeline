@@ -1,0 +1,69 @@
+project:
+  name: TREs_pipeline
+
+input:
+  manifest_raw: "/scratch/project_X/manifest.tsv"
+  manifest_complete: "/path/to/file/manifest_complete.csv"
+
+program:
+  ehdn: "program/ehdn/bin/ExpansionHunterDenovo"
+  liftover: "program/liftOver"
+  RExPRT: "program/RExPRT/RExPRT/RExPRT.sh"
+
+resources:
+  resource_directory: "resources/"
+  geneset_directory: "resources/genesets"
+  reference_genome: "resources/hg38.fa"
+  liftover_chain: "resources/hg38ToHg19.over.chain.gz"
+  genome_bins: "resources/genome.bin.1k.tsv"
+  phylop: "resources/subset_phylop_1kb_bins.tsv"
+  fragile_sites: "resources/fagile_sites_hg38.tsv"
+  known_repeats: "resources/UCSC_simple_repeats_hg38.period_lte20.txt"
+  refflat: "resources/refFlat.txt"
+  introns: "resources/hg38_intron_refFlat.txt"
+  exons: "resources/hg38_exon_refFlat.txt"
+  appris_108: "resources/appris_data.principal.refseq108.hg38.txt"
+  appris_109: "resources/appris_data.principal.refseq109.hg38.txt"
+
+results:
+  ehdn: "results/ehdn"
+  qc: "results/qc"
+  dbscan: "results/dbscan"
+  annotation: "results/annotation"
+  rexprt: "results/rexprt"
+  analysis: "results/analysis"
+
+
+# Analysis parameters
+analysis_privacy: "all"  # or "private"
+analysis_purity: "mixed"  # or "pure"
+manifest_mode: "filtered"   # or "complete"
+
+#Proximity and correlation settings
+tss_window: 10000
+sj_window: 10000
+
+proximity_comparisons: "auto" # or specify as "Group1-Group2,Group3-Group4"
+extra_comparisons: ""  # e.g., "Group1-Group2" "Case-KnownSTRs"
+
+
+# Regression
+group_order: ["Control", "Case"] # or put the refrence one as the first one and the "worst"one as the last one 
+include_cpg: TRUE # or false 
+
+# Burden
+exclude_samples_1: ""
+exclude_samples_2: ""
+plot_options: "significant" # "significant", "all", "global_only"
+
+#Geneset
+custom_geneset_dir: ""
+geneset_list: ["brain","brain_ntpm"]
+geneset_mode: "basic" #basic combined diffrent 
+
+# ORA 
+gem_per_group: TRUE # TRUE = separate folder per group, FALSE = all GEMs in one directory
+min_term_size: 2
+max_term_size: 2500
+gmt_file: "path/to/filegmt"
+

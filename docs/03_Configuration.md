@@ -1,3 +1,28 @@
+
+## Configuration
+### Key Parameters to Customize 
+Edit `config/config.yaml`:
+
+```yaml
+input:
+  manifest_raw: "/path/to/manifest.tsv"  # Required: 3 columns (Sample_ID | Status | BAM_path)
+
+  # Optional: additional manifest with covariates
+  manifest_mode: "filtered"   # or "complete"
+  manifest_complete: "/path/to/full_manifest.csv" # Required: minimum 2 columns with exactly these names (sample_id | Status )
+
+analysis_privacy: "all"     # "all" or "private" (expansions in only one individual)
+analysis_purity: "mixed"    # "mixed" or "pure" (exclude multi-group outliers)
+include_cpg: TRUE # or false 
+
+# Group order matters for regression (reference = first)
+group_order: ["Control", "Case"]  # Reference group first
+
+gmt_file: "path/to/filegmt" 
+
+
+```
+
 ## CUSTOMIZATION
 
 ## Group Comparisons

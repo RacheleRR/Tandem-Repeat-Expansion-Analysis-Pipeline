@@ -1,6 +1,4 @@
 # Tandem Repeat Expansion Analysis Pipeline
-
-## 🔍 Overview
 This pipeline provides an end-to-end, reproducible framework for the genome-wide analysis of tandem repeat (TR) expansions from whole-genome sequencing data. It enables systematic detection, characterization, and biological interpretation of repeat expansions across multiple cohorts and phenotypic groups, with an emphasis on statistical rigor and downstream functional relevance.
 
 ## ✨ Key Capabilities

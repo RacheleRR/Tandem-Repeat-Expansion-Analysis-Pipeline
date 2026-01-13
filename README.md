@@ -126,12 +126,7 @@ For questions or issues:
 - GitHub Issues: [link]
 - Email: [your email]
 
-## 🔄 Version History
 
-- **v1.0.0** (2026-01): Initial release
-  - Complete EHDN workflow
-  - Multi-group statistical analysis
-  - Enrichment and network analysis
   
 
 

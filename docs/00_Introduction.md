@@ -8,9 +8,9 @@ The following sections will help you to get started.
 
 Quick start guides:
 
-- [Before_you_begin](Before_you_begin.md)
-- [Installation](Installation.md)
-- [customization_configuration](customization_configuration.md)
-- [pipeline_stages](pipeline_stages.md)
-- [Troubleshooting](Troubleshooting.md)
+- [Pipeline structure](01_Pipeline_structure.md)
+- [Installation](02_Installation.md)
+- [customization_configuration](03_Configuration.md)
+- [Usage Guide](04_Usage_guide.md)
+- [Troubleshooting](05_Troubleshooting.md)
 

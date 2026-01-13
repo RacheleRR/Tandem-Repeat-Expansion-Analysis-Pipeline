@@ -10,7 +10,7 @@ Quick start guides:
 
 - [Pipeline structure](01_Pipeline_structure.md)
 - [Installation](02_Installation.md)
-- [customization_configuration](03_Configuration.md)
+- [Configuration_options](03_Configuration.md)
 - [Usage Guide](04_Usage_guide.md)
 - [Troubleshooting](05_Troubleshooting.md)
 

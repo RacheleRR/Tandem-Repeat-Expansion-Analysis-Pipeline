@@ -1,0 +1,15 @@
+--- BTlib.py
++++ BTlib.py
+@@ -1,2 +1,10 @@
+ # Provides helper functions for some of the python scripts included in this repository.
+
++from __future__ import annotations
++
++from docx import Document
++from docx.shared import Pt
++from docx.oxml import OxmlElement
++from docx.oxml.ns import qn
++from docx.table import _Cell
++
+ import sys
+

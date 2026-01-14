@@ -1,5 +1,60 @@
-
 ## Configuration
+This pipeline is configured through the file:
+
+```
+config/config.yaml
+```
+
+This file controls input data, analysis behavior, group comparisons, and gene set enrichment.
+Most users will only need to modify a subset of parameters described below.
+
+## 1. Input Files
+### 1.1 Required Manifest
+
+```
+input:
+  manifest_raw: "/path/to/manifest.tsv"
+```
+The raw manifest must be a TSV file with exactly three columns:
+
+Column name	Description
+sample_id	Unique sample identifier
+Status	Group label (e.g. Control, Case)
+BAM_path	Absolute path to BAM file
+
+```
+Example:
+sample_id	Status	BAM_path
+sample_001	Control	/path/sample_001.bam
+sample_002	Case	/path/sample_002.bam
+```
+
+### 1.2 Optional Manifest
+```
+manifest_mode: "filtered"   # or "complete"
+manifest_complete: "/path/to/manifest_complete.csv"
+```
+
+- ```manifest_mode: filtered```  → only uses information from manifest_raw
+- ```manifest_mode: complete```  → merges informations from manifest_complete
+
+The manifest_complete file must contain at least:
+
+Column	Required
+sample_id	yes
+Status	yes
+
+## 2. Analysis Behavior
+### 2.1 Privacy and Purity Filters
+```
+analysis_privacy: "all"    # "all" or "private"
+analysis_purity: "mixed"   # "mixed" or "pure"
+```
+
+- ```analysis_privacy: private``` → only consider expansions unique to a single individual
+- ```analysis_purity: pure``` → exclude loci with mixed group membership (useful for strict case-control analyses)
+
+
 ### Key Parameters to Customize 
 Edit `config/config.yaml`:
 

@@ -1,8 +1,32 @@
-
-
 ## 🔧 Troubleshooting
+This guide addresses common issues when running the Tandem Repeat Expansion Analysis Pipeline. For each problem, follow the solutions in order until resolved.
 
-### No Significant Results
+ Quick Reference Table
+
+| Symptom | Most Likely Cause |	First Action |
+|---------|----------------|-------------|
+| Patch errors | Line ending issues	| Run sed fix command |
+| File not found errors |	Incorrect paths |	Check config.yml paths |
+| No significant results | Small sample size |	Check manifest_ufficial.tsv |
+| Cytoscape not running |	Cytoscape not started	| Start Cytoscape app |
+| No enrichment results |	Gene list too small	 | Verify ≥5 genes per list |
+
+
+## Patch Application Errors
+- Ensure you have `sed` installed
+- if the patch fails ( do this  sed -i 's/\r$//' helper/BTlib_docx_imports.patch)
+
+## File Not Found Errors
+
+**Symptom**: `Error: file.exists(x) is not TRUE`
+
+**Solutions**:
+1. Check all paths in `config.yml` are absolute or relative to project root
+2. Verify resource files are downloaded
+3. Check file permissions
+   
+
+## No Significant Results
 
 **Symptom**: Analysis completes but no significant findings
 
@@ -14,7 +38,7 @@
 5. Check `ANALYSIS_SUMMARY.txt` files for details
 
 
-### Cytoscape Errors
+## Cytoscape Errors
 
 **Symptom**: `Warning: Cytoscape not running!`
 
@@ -24,21 +48,15 @@
 3. Ensure EnrichmentMap app is installed in Cytoscape
 4. Or disable Cytoscape integration (networks wont be generated)
 
-### "No enrichment results"
+## No enrichment results
+**Symptom**: Analysis completes but no significant findings
+
+**Solutions**:
 - Check gene lists have ≥5 genes
 - Verify term size filters in config (default: 2-2500)
 
 
-### File Not Found Errors
-
-**Symptom**: `Error: file.exists(x) is not TRUE`
-
-**Solutions**:
-1. Check all paths in `config.yml` are absolute or relative to project root
-2. Verify resource files are downloaded
-3. Check file permissions
 
 
-### Patch Application Errors
-- Ensure you have `sed` installed
-- if the patch fails ( do this  sed -i 's/\r$//' helper/BTlib_docx_imports.patch)
+
+

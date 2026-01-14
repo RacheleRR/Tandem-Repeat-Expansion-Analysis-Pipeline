@@ -142,8 +142,7 @@ exclude_samples_1: ""
 exclude_samples_2: ""
 plot_options: "significant" # "significant", "all", "global_only"
 ```
-- If you have samples that in hindeside need to be excluded from the analysis 
-- Excluded samples can be specified as comma-separated lists 
+- If you have samples that in hindeside need to be excluded from the analysis use exclude_samples_1 or 2. Excluded samples can be specified as comma-separated lists 
 - What plots should be saved for the wilxocoxon/kruskal analysis
   
 ---
@@ -164,9 +163,9 @@ It is important to note that the custom Geneset:
 
 Custom gene sets can be placed in a user-defined directory.
 
-```geneset_list: ["brain", "brain_ntpm"]``` <- describes the gene sets that will be used for the analysis for example ["brain", "brain_ntpm"]. If geneset_list is not modified, the pipeline will use the default gene sets defined within the pipeline.
+```geneset_list: []``` <- describes the gene sets that will be used for the analysis for example `["brain", "brain_ntpm"]`. If geneset_list is not modified, the pipeline will use the default gene sets defined within the pipeline.
 
-```geneset_mode: "basic"``` <- describes which genesets should be used, basic stands for the once already present in the pipeline, diffrent stands for the once that are customized and the combined stands for when you use both the basic and the customized genesets 
+```geneset_mode: "basic"``` <- describes which genesets should be used, **basic** stands for the once already present in the pipeline, **diffrent** stands for the once that are customized and **combined** stands for when you use both the basic and the customized genesets 
 
 
 ---

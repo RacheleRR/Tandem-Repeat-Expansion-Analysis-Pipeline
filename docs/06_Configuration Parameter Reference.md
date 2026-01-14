@@ -1,3 +1,8 @@
+## Complete Configuration Parameter Reference
+
+This section documents **all available parameters** in `config/config.yaml`.
+
+
 
 ### Project
 

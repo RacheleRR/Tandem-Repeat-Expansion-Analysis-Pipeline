@@ -1,6 +1,6 @@
-## 🚀 Installation
+# 🚀 Installation
 
-### Prerequisites
+## Prerequisites
 
 Before installing the pipeline, ensure the following software is available:
 
@@ -9,7 +9,7 @@ Before installing the pipeline, ensure the following software is available:
 - R studio (≥4.1)
 - Cytoscape ≥ 3.9 (optional, for network visualization)
 
-### 1.Setup
+## 1.Setup
 ```bash
 # 1. Clone repository
 git clone https://github.com/yourusername/ehdn-pipeline.git
@@ -19,7 +19,7 @@ cd ehdn-pipeline
 bash setup/setup.sh
 
 ```
-### 2. Manual download of ANNOVAR files
+## 2. Manual download of ANNOVAR files
 1. Register and download ANNOVAR from here:
    [OpenBioinformatics ANNOVAR download form](https://www.openbioinformatics.org/annovar/annovar_download_form.php)
 2. Extract and move ANNOVAR files into the pipeline helper directory:
@@ -30,7 +30,7 @@ mv annovar helper/annovar
 
 ```
 
-### 3. Optional: Download GMT files for network analysis
+## 3. Optional: Download GMT files for network analysis
 If you plan to run the network analysis:
 1. Go to g:Profiler [https://biit.cs.ut.ee/gprofiler/gost](https://biit.cs.ut.ee/gprofiler/gost)
 3. Select the desired data sources
@@ -42,3 +42,15 @@ mv combined_names.gmt  resources/
 
 ```
 
+## 4. Optional: Custom Geneset
+If you decide that you want to perform the anlysis with your custom geneset/s. 
+It is important to respect some rules.
+
+The custom Geneset:
+- Must be **CSV files** or **TSV files**
+- Required column: **Gene**
+- One gene symbol per row
+- Files should already be filtered for relevance/significance
+- The Custom Genese/s need to me moved to the `resources/geneset/custom` directory
+
+  

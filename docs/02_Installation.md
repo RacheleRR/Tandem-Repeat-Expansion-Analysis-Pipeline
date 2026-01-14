@@ -1,6 +1,14 @@
-
-
 ## 🚀 Installation
+
+### Prerequisites
+
+Before installing the pipeline, ensure the following software is available:
+
+- Python 3.8 or higher
+- Snakemake (>= 7.0)
+- R studio (≥4.1)
+- Cytoscape ≥ 3.9 (optional, for network visualization)
+
 ### 1.Setup
 ```bash
 # 1. Clone repository
@@ -11,19 +19,26 @@ cd ehdn-pipeline
 bash setup/setup.sh
 
 ```
-### 2. Manuali download annovar files 
-register and download annovar from this website 
-https://www.openbioinformatics.org/annovar/annovar_download_form.php
-or this https://annovar.openbioinformatics.org/en/latest/user-guide/download/
+### 2. Manual download of ANNOVAR files
+1. Register and download ANNOVAR from here:
+   [OpenBioinformatics ANNOVAR download form](https://www.openbioinformatics.org/annovar/annovar_download_form.php)
+2. Extract and move ANNOVAR files into the pipeline helper directory:
+
 ```bash
 tar xvfz annovar.latest.tar.gz 
-mv annovar helper/annovar 
+mv annovar helper/annovar
+
 ```
 
-### 3. Download gmt from gprofiler 
-If you desire to do the network analysis you need to go onto https://biit.cs.ut.ee/gprofiler/gost and to Data source select the data sources you would like to use for your network analysis and download the combined names gmt 
+### 3. Optional: Download GMT files for network analysis
+If you plan to run the network analysis:
+1. Go to g:Profiler [https://biit.cs.ut.ee/gprofiler/gost](https://biit.cs.ut.ee/gprofiler/gost)
+3. Select the desired data sources
+4. Download the combined names GMT file
+5. Move the GMT file into the resources/ folder:
 
 ```bash
-mv combined_names.gmt  resources/ 
+mv combined_names.gmt  resources/
+
 ```
 

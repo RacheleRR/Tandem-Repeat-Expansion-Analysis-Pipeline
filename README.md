@@ -16,13 +16,13 @@ This pipeline provides an end-to-end, reproducible framework for the genome-wide
 ## 📘 Documentation
 Full documentation is available in the [Documents](docs) directory, including:
 - [Installation](docs/02_Installation.md)
-- [Configuration options](03_Configuration.md)
-- [Usage guide](04_usage_guide.md)
-- [Pipeline_stages](01_Before_you_begin.md)
-- [Troubleshooting](Troubleshooting.md)
+- [Configuration options](docs/03_Configuration.md)
+- [Usage guide](docs/04_usage_guide.md)
+- [Pipeline_stages](docs/01_Pipeline_structure.md)
+- [Troubleshooting](docs/05_Troubleshooting.md)
 
 Start here:
-➡️ [](00_Introduction.md)
+➡️ [](docs/00_Introduction.md)
 
 
 # Basic Usage

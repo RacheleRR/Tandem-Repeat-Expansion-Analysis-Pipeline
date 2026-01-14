@@ -1,4 +1,4 @@
-## Configuration
+## 🔧 Configuration
 This pipeline is configured through the file:
 
 ```

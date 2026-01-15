@@ -17,7 +17,7 @@ if [ ! -d "ehdn" ]; then
 fi
 
 if [ ! -d "liftOver" ]; then
-     wget https://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/liftOver   liftOver 
+     wget https://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/liftOver  
         chmod +x liftOver
 fi
 

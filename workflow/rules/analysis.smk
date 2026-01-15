@@ -37,7 +37,7 @@ rule correlation:
         outdir = f"{ANALYSIS}/correlation/{config['analysis_privacy']}",
         privacy = config["analysis_privacy"],
         resource_dir = config["resources"]["resource_directory"],
-        extra_comparison = config["extra_comparison"]
+        extra_comparison = config["extra_comparisons"]
     log:
         f"logs/analysis/correlation_{config['analysis_privacy']}.log"
     shell:

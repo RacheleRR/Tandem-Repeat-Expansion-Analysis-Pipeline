@@ -10,7 +10,7 @@ Perform a dry run to inspect which rules will be executed and to check that the 
 
 ```bash
 cd TRs-pipeline
-snakemake -n
+snakemake -n --cores 12
 ```
 
 ## Full Pipeline

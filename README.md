@@ -28,6 +28,7 @@ Start here:
 # Basic Usage
 **Clone repository**
 ```
+git lfs install
 git clone https://github.com/yourusername/ehdn-pipeline.git
 cd ehdn-pipeline
 ```

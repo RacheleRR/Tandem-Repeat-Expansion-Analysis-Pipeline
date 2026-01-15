@@ -7,11 +7,13 @@ Before installing the pipeline, ensure the following software is available:
 - Python 3.8 or higher
 - Snakemake (>= 7.0)
 - R studio (≥4.1)
+- git-lfs (necessary to download the bigger files)
 - Cytoscape ≥ 3.9 (optional, for network visualization)
 
 ## 1.Setup
 ```bash
 # 1. Clone repository
+git lfs install
 git clone https://github.com/yourusername/ehdn-pipeline.git
 cd ehdn-pipeline
 

@@ -9,7 +9,7 @@ if [ ! -d "Fazal2020Scripts" ]; then
     cd Fazal2020Scripts
     chmod +x *
 fi
-
+cd ..
 if [ ! -d "BTlib" ]; then
 git clone https://github.com/bjtrost/tandem-repeat-expansions-in-ASD.git
 cd tandem-repeat-expansions-in-ASD

@@ -1,0 +1,2 @@
+resources/subset_phylop_1kb_bins.tsv filter=lfs diff=lfs merge=lfs -text
+resources/genome.bin.1k.tsv filter=lfs diff=lfs merge=lfs -text

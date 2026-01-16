@@ -40,7 +40,7 @@ sample_002	Case	/path/sample_002.bam
 ### 1.2 Group Definition (Required)
 
 ```yaml
-group_order: ["Control", "Case"]
+group_order: "Control,Case"
 ```
 
 - The **first group is the reference group**

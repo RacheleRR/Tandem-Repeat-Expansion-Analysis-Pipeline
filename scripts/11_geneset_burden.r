@@ -217,14 +217,6 @@ write.table(
 # ============================================
 # Wilcoxon or kruskal analyisis
 # ============================================
-gene_lists <- list(
-    brain = genesets$genes_brain,
-    brain_ntpm = genesets$genes_brain_ntpm,
-    schema_pval = genesets$genes_schema_pval,
-    bipolar = genesets$genes_bipolar,
-    schema_qval = genesets$genes_schema_qval
-)
-
 complete_data <-create_wilcoxon_kruskal_tables(tr_data, data_name, gene_lists, private = FALSE, manifest_data = manifest_ufficial, filter_sample = all_exclude_samples,group_names = group_names) 
 results_nonpara <- perform_nonparametric_analysis(complete_data,  group_col = "group")
 

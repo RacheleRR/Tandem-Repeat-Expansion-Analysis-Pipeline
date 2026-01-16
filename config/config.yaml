@@ -48,7 +48,7 @@ extra_comparisons: ""  # e.g., "Group1-Group2" "Case-KnownSTRs"
 
 
 # Regression
-group_order: ["Control", "Case"] # or put the refrence one as the first one and the "worst"one as the last one 
+group_order: "Control,Case" # or put the refrence one as the first one and the "worst"one as the last one 
 include_cpg: TRUE # or false 
 
 # Burden

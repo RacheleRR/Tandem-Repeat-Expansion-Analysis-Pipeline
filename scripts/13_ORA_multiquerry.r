@@ -141,9 +141,23 @@ if(gem_per_group) {
     save_gprofiler2_results(res$result, group, group_dir)
     
     # Generate plots
-    png(file.path(group_dir, paste0("gprofiler_plot_", group, ".png")), width = 1200, height = 800)
-    gostplot(res, capped = TRUE, interactive = FALSE)
-    dev.off()
+    tryCatch({
+      p <- gostplot(res, capped = TRUE, interactive = FALSE)
+      png_file <- file.path(group_dir, paste0("gprofiler_plot_", group, ".png"))
+      
+      ggsave(
+        filename = png_file,
+        plot = p,
+        width = 12,
+        height = 8,
+        dpi = 100,
+        device = "png"
+      )
+      message("PNG saved: ", png_file)
+    }, error = function(e) {
+      message("Failed to save PNG for group ", group, ": ", e$message)
+    })
+    
     
     htmlwidgets::saveWidget(
       gostplot(res, capped = TRUE, interactive = TRUE),
@@ -188,9 +202,23 @@ if(gem_per_group) {
     save_gprofiler2_results(res$result, "multiquery", output_dir)
     
     # Generate one combined plot
-    png(file.path(output_dir, "gprofiler_multiquery_plot.png"), width = 1600, height = 900)
-    gostplot(res, capped = TRUE, interactive = FALSE)
-    dev.off()
+    tryCatch({
+      p <- gostplot(res, capped = TRUE, interactive = FALSE)
+      png_file <- file.path(output_dir, "gprofiler_multiquery_plot.png")
+      
+      ggsave(
+        filename = png_file,
+        plot = p,
+        width = 12,
+        height = 8,
+        dpi = 100,
+        device = "png"
+      )
+      message("PNG saved: ", png_file)
+    }, error = function(e) {
+      message("Failed to save PNG for group ", group, ": ", e$message)
+    })
+    
     
     htmlwidgets::saveWidget(
       gostplot(res, capped = TRUE, interactive = TRUE),

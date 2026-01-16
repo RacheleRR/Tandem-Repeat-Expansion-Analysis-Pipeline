@@ -100,7 +100,6 @@ run_comparison_analysis_dynamic <- function(
       bin_data$feat <- bin_data[[f]]
 
       fit <- tryCatch(
-        cat("Running GLM\n")
         glm(tmp_type ~ feat, data = bin_data, family = binomial),
         error = function(e) NULL
       )

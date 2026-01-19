@@ -85,7 +85,7 @@ create_correlation_plot_dynamic <- function(results_df, title) {
   
   results_df$feature_display <- factor(results_df$feature_display, levels = unique(results_df$feature_display))
   
-  ggplot(results_df, aes(x = feature_display, y = Odds.ratio, fill = type)) +
+  p <- ggplot(results_df, aes(x = feature_display, y = Odds.ratio, fill = type)) +
     geom_bar(stat = "identity", width = 0.6, position = position_dodge(width = 0.7), color = "black") +
     geom_errorbar(aes(ymin = OR.lower, ymax = OR.upper), position = position_dodge(width = 0.7), width = 0.2) +
     geom_text(aes(label = stars, y = OR.upper + 0.15), position = position_dodge(width = 0.7), vjust = 0, size = 5) +
@@ -104,7 +104,8 @@ create_correlation_plot_dynamic <- function(results_df, title) {
     labs(title = title, fill = "Group / Type") +
     scale_y_continuous(expand = expansion(mult = c(0, 0.1)))
  
- cat("=== Correlation plot ready ===\n\n")  
+ cat("=== Correlation plot ready ===\n\n")
+  return(p)
 }
 
 

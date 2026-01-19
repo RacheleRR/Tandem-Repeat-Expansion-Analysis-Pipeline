@@ -1008,11 +1008,12 @@ plot_multinom_or <- function(df, x_col = "predictor", y_col = "odds_ratio",
 
 #14ORA
 build_enrichmentmap_network <- function(folder, name,gmt_file){
+  folder <- normalizePath(folder, mustWork = TRUE)
   
   if(name == "combined") {
     # Find ALL GEM files for all groups
     gem_files <- list.files(folder, pattern = "gProfiler_.*_gem\\.txt$", full.names = TRUE)
-    
+    gem_files <- normalizePath(gem_files, mustWork = TRUE)
     if(length(gem_files) == 0) return(NULL)
     
     message("Building COMBINED network with ", length(gem_files), " groups")
@@ -1040,6 +1041,7 @@ build_enrichmentmap_network <- function(folder, name,gmt_file){
   } else {
     # Single group - use your existing code
     gem_file <- file.path(folder, paste0("gProfiler_gem_", name, ".txt"))
+    gem_file <- normalizePath(gem_file, mustWork = TRUE)
     if(!file.exists(gem_file)) return(NULL)
     
     cyrestPOST(

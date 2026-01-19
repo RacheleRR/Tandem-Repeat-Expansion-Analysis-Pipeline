@@ -256,27 +256,63 @@ if(gem_per_group) {
 # ============================================
 # Cytoscape: build EnrichmentMap
 # ============================================
+message("\n=== Cytoscape Network Generation ===")
+
 if (!requireNamespace("RCy3", quietly = TRUE)) {
   message("RCy3 package not installed. Skipping Cytoscape networks.")
   message("Install with: BiocManager::install('RCy3')")
-} else if (!cytoscapePing()) {
-  message("Cytoscape not running. Skipping network generation.")
-  message("To generate networks: Start Cytoscape and re-run this step.")
 } else {
-  tryCatch({
-    if (gem_per_group) {
-      for(group in group_names){
-        group_dir <- file.path(output_dir, group)
-        build_enrichmentmap_network(group_dir, group, gmt_file)
-      }
-    } else {
-      build_enrichmentmap_network(output_dir, "combined", gmt_file)
-    }
+  # Try to connect to Cytoscape with error handling
+  cytoscape_available <- tryCatch({
+    RCy3::cytoscapePing()
+    message(" Cytoscape is running and connected")
+    TRUE
   }, error = function(e) {
-    warning("Cytoscape network generation failed: ", e$message)
-    warning("Networks will not be created, but analysis will continue.")
+    message("Cytoscape not running or not reachable: ", e$message)
+    message("  Skipping network generation.")
+    message("  To generate networks: Start Cytoscape and re-run this step.")
+    FALSE
   })
+  
+  # Only proceed if Cytoscape is available
+  if (cytoscape_available) {
+    message("Building Cytoscape networks...")
+    
+    tryCatch({
+      gmt_file <- normalizePath(
+      file.path(getwd(), gmt_file),
+      mustWork = TRUE
+    )
+      if (gem_per_group) {
+        # Process each group that has results
+        for (group in group_names) {
+          group_dir <- file.path(output_dir, group)
+          gem_file <- file.path(group_dir, paste0("gProfiler_gem_", group, ".txt"))
+          
+          if (file.exists(gem_file)) {
+            message("  Creating network for group: ", group)
+            build_enrichmentmap_network(group_dir, group, gmt_file)
+          } else {
+            message("  Skipping group ", group, ": no enrichment results")
+          }
+        }
+      } else {
+        # Multi-query mode
+        message("  Creating combined network")
+        build_enrichmentmap_network(output_dir, "combined", gmt_file)
+      }
+      
+      message("✓ Cytoscape networks created successfully")
+      
+    }, error = function(e) {
+      message("⚠ Cytoscape network generation failed: ", e$message)
+      message("  Networks were not created, but analysis is complete.")
+    })
+  }
 }
+
+message("Cytoscape section complete.\n")
+
 
 # Save g:Profiler version info for reproducibility
 version_info <- get_version_info(organism = "hsapiens")

@@ -189,6 +189,43 @@ echo "RExPRT annotation complete!"
 echo "Output file: $REX_OUTPUT"
 
 # ============================================================================
+# STEP 5: MOVE RExPRT OUTPUTS
+# ============================================================================
+
+echo ""
+echo "=== Step 5: Collecting RExPRT outputs ==="
+
+# Where RExPRT writes outputs (current pipeline root)
+PIPELINE_ROOT=$(pwd)
+echo "Pipeline root: $PIPELINE_ROOT"
+# Expected filenames
+BASE_NAME=$(basename "$REX_INPUT" .txt)
+
+FILE1="${BASE_NAME}_TRsAnnotated_RExPRTscores.txt"
+FILE2="${BASE_NAME}_RExPRTscores.txt"
+
+# Move annotated file (required)
+if [ -f "$PIPELINE_ROOT/$FILE1" ]; then
+    mv "$PIPELINE_ROOT/$FILE1" "$OUTPUT_DIR/"
+    echo "Moved: $FILE1"
+else
+    echo "ERROR: Missing RExPRT output: $FILE1"
+    exit 1
+fi
+
+# Move score-only file (optional but expected)
+if [ -f "$PIPELINE_ROOT/$FILE2" ]; then
+    mv "$PIPELINE_ROOT/$FILE2" "$OUTPUT_DIR/"
+    echo "Moved: $FILE2"
+else
+    echo "WARNING: $FILE2 not found (known RExPRT behavior)"
+fi
+
+echo ""
+echo "RExPRT annotation complete!"
+echo "Results stored in: $OUTPUT_DIR"
+
+# ============================================================================
 # SUMMARY
 # ============================================================================
 

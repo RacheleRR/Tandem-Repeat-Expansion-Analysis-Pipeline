@@ -39,6 +39,6 @@ Rscript "$r_script_prepare_annovar" \
 bash "$sh_script_run_annovar" \
     --ehdn-results "$REORDERED_TSV" \
     --ehdn-annotated-results "$ANNOTATED_TSV" \
-    --annovar-annotate-variation helper/annotate_variation.pl \
-    --annovar-humandb helper/humandb \
+    --annovar-annotate-variation helper/annovar/annotate_variation.pl \
+    --annovar-humandb helper/annovar/humandb \
     --annovar-buildver "$BUILDVER"

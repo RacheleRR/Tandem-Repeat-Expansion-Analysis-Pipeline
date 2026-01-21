@@ -57,15 +57,18 @@ These parameters are **not required to be modified**, but are frequently adjuste
 
 ### 2.1 Parallel ExpansionHunterDenovo Execution
 
-For large cohorts (>50 samples), ExpansionHunterDenovo profiling can be parallelized.
+For large cohorts (>50 samples), it is best to parallelized ExpansionHunterDenovo profiling .
 
-Example:
-
-```bash
-snakemake --cores 48 --resources mem_mb=200000 all_ehdn
+```yaml
+  ehdn_parallelize: true
+  ehdn_max_parallel: 8
 ```
 
-Advanced users may modify `workflow/rules/ehdn.smk` to enable per-sample execution.
+- `ehdn_max_parallel`
+  →  the amount of samples to run in parallele
+- `ehdn_parallelize`
+  → if to parallelize or not the samples 
+
 
 ---
 

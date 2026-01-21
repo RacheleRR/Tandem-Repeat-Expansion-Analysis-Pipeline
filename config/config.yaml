@@ -61,12 +61,12 @@ plot_options: "significant" # "significant", "all", "global_only"
 
 #Geneset
 custom_geneset_dir: ""
-geneset_list: ["brain","brain_ntpm"]
+geneset_list: ["all"] # ["brain","brain_ntpm"]
 geneset_mode: "basic" #basic combined diffrent 
 
 # ORA 
 gem_per_group: TRUE # TRUE = separate folder per group, FALSE = all GEMs in one directory
 min_term_size: 2
 max_term_size: 2500
-gmt_file: "path/to/filegmt"
+gmt_file: "resources/gprofiler_full_hsapiens.name.gmt"  #"path/to/filegmt"
 

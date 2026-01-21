@@ -8,6 +8,7 @@ Before installing the pipeline, ensure the following software is available:
 - Snakemake (>= 7.0)
 - R studio (≥4.1)
 - git-lfs (necessary to download the bigger files)
+- GNU parallel (necessary to run samples in parallel in ehdn) 
 - Cytoscape ≥ 3.9 (optional, for network visualization)
 
 ## 1.Setup

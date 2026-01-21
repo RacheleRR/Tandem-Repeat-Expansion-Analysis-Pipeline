@@ -65,6 +65,16 @@ This section documents **all available parameters** in `config/config.yaml`.
 
 ---
 
+### Pipeline
+
+| Parameter | Type | Modification Required | Description |
+|---------|------|----------|-------------|
+| `pipeline.ehdn_parallelize` | boolean | no | Parallelize ehdn profiler   |
+| `pipeline.ehdn_max_parallel` | int | no | How many samples running parallel |
+
+
+---
+
 ### Analysis Parameters
 
 | Parameter | Type | Modification Required | Description |
